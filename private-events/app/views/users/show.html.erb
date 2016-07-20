@@ -1,0 +1,37 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= @user.name %>
+      </h1>
+    </section>
+
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="micropost_form">
+        <%= render 'shared/event_form' %>
+      </section>
+    </aside>
+  </div>
+<% end %>
+    
+  </aside>
+  <div class="col-md-8">
+    <% if @user.created_events.any? %>
+      <h3>Created events (<%= @user.created_events.count %>)</h3>
+      <ol class="microposts">
+      <% @events.each do |event| %>
+		<li id="micropost-<%= event.id %>">
+		  <span class="content">Description: <%= event.description %></span>
+		  <br>
+		  <span class="content">Location: <%= event.location %></span>
+		  <br>
+		  <span class="content">Time: <%= event.time %></span>
+		</li>
+	   <% end %>	
+      </ol>
+    <% end %>
+  </div>
+</div>
