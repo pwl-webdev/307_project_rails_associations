@@ -5,6 +5,7 @@
       <ul class="nav navbar-nav navbar-right">
       <%if logged_in? %>
       	<li><%= link_to current_user.name.capitalize,   current_user %></li>
+      	<li><%= link_to "All events",  events_path  %></li>
       	<li><%= link_to "Log out",   :controller => :application, :action => :log_out %></li>
       <%else%>
       	<li><%= link_to "Home",   root_path %></li>

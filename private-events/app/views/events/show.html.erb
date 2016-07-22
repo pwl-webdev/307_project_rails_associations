@@ -1,0 +1,13 @@
+<% provide(:title, @event.creator.name) %>
+  <div class="col-md-8">
+		  <h3><span class="content">Event creator: <%= link_to @event.creator.name, user_path %></span></h3>
+      <% if @event.attendees.any? %> 
+        <ol class="microposts">
+          <% @event.attendees.each do |attendee| %>
+            <li>
+            <span class="content"><%= attendee.name %></span>
+            </li>
+          <% end %>
+        </ol>
+       <% end %> 
+</div>

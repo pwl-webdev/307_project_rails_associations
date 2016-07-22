@@ -24,7 +24,41 @@
       <ol class="microposts">
       <% @events.each do |event| %>
 		<li id="micropost-<%= event.id %>">
-		  <span class="content">Description: <%= event.description %></span>
+		  <span class="content">Description: <%= link_to event.description, event %></span>
+		  <br>
+		  <span class="content">Location: <%= event.location %></span>
+		  <br>
+		  <span class="content">Time: <%= event.time %></span>
+		</li>
+	   <% end %>	
+      </ol>
+    <% end %>
+  </div>
+
+    <div class="col-md-8">
+    <% if @upcoming_events.any? %>
+      <h3>Upcoming events (<%= @upcoming_events.count %>)</h3>
+      <ol class="microposts">
+      <% @upcoming_events.each do |event| %>
+		<li id="micropost-<%= event.id %>">
+		  <span class="content">Description: <%= link_to event.description, event %></span>
+		  <br>
+		  <span class="content">Location: <%= event.location %></span>
+		  <br>
+		  <span class="content">Time: <%= event.time %></span>
+		</li>
+	   <% end %>	
+      </ol>
+    <% end %>
+  </div>
+
+    <div class="col-md-8">
+    <% if @prev_events.any? %>
+      <h3>Previous events (<%= @prev_events.count %>)</h3>
+      <ol class="microposts">
+      <% @prev_events.each do |event| %>
+		<li id="micropost-<%= event.id %>">
+		  <span class="content">Description: <%= link_to event.description, event %></span>
 		  <br>
 		  <span class="content">Location: <%= event.location %></span>
 		  <br>

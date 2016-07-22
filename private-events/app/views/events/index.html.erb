@@ -1,0 +1,17 @@
+  <div class="col-md-8">
+    <% if @events.any? %>
+      <h3>Created events (<%= @events.count %>)</h3>
+      <ol class="microposts">
+      <% @events.each do |event| %>
+		<li id="micropost-<%= event.id %>">
+		  <span class="content">Description: <%= link_to event.description, event %></span>
+		  <br>
+		  <span class="content">Location: <%= event.location %></span>
+		  <br>
+		  <span class="content">Time: <%= event.time %></span>
+		</li>
+	   <% end %>	
+      </ol>
+    <% end %>
+  </div>
+</div>
